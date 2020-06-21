@@ -1,6 +1,5 @@
 package nhk.entity
 
-import java.time.Instant
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.Transient
