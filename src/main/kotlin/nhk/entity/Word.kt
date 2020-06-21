@@ -10,10 +10,6 @@ class Word : BaseEntity() {
     @Column(length = 50)
     var name = ""
 
-    var createdAtUtc = Instant.now()
-
-    var updatedAtUtc = Instant.now()
-
     @Transient
     var definitions = mutableListOf<WordDefinition>()
 

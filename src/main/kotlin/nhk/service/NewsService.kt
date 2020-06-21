@@ -64,7 +64,6 @@ open class NewsService {
                 word
             } else {
                 val currentWord = currentWords.first()
-                currentWord.updatedAtUtc = Instant.now()
                 currentWord.definitions = word.definitions
 
                 currentWord
