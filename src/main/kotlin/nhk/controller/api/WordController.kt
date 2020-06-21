@@ -35,6 +35,9 @@ class WordController : BaseController() {
         }
 
         val newsWords = newsWordRepository.findByNewsId(news.first().id)
+        val newsWordMap = newsWords.map { newsWord ->
+            newsWord.wordId to newsWord
+        }.toMap()
         val wordIds = newsWords.map { newsWord ->
             newsWord.wordId
         }
@@ -46,6 +49,7 @@ class WordController : BaseController() {
 
         return words.map { word ->
             val wordDto = WordDto()
+            wordDto.idInNews = newsWordMap[word.id]?.idInNews ?: ""
             wordDto.name = word.name
             wordDto.definitions = wordDefinitions[word.id]
                     ?.map { wordDefinition ->
