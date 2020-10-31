@@ -1,6 +1,6 @@
 image: Visual Studio 2017
 environment:
-  MYSQL_PASSWORD: Password12!
+  MYSQL_PWD: Password12!
 services:
   - mysql
 before_build:
