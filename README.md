@@ -14,7 +14,7 @@ docker run -e MYSQL_ROOT_PASSWORD=your-mysql-root-password \
 docker run -e MYSQL_HOST=ip-address-of-mysql (inspected from docker inspect mysql-container) \
   -e MYSQL_USER=your-mysql-user \
   -e MYSQL_PASSWORD=your-mysql-user-password \
-  -p 8080:8080 xiaodanmao/nhk-easy-daily
+  -p 8080:8080 xiaodanmao/nhk-easy-api
 ```
 
 ### Docker compose
