@@ -5,9 +5,16 @@ API of [nhk-easy-mobile](https://github.com/Frederick-S/nhk-easy-mobile).
 ## Getting started
 ### Docker
 ```sh
-docker run -e MYSQL_ROOT_PASSWORD=your-mysql-root-password -e MYSQL_DATABASE=nhk -e MYSQL_USER=your-mysql-user -e MYSQL_PASSWORD=your-mysql-user-password -p 3306:3306 -d mysql:8
+docker run -e MYSQL_ROOT_PASSWORD=your-mysql-root-password \
+  -e MYSQL_DATABASE=nhk -e MYSQL_USER=your-mysql-user \
+  -e MYSQL_PASSWORD=your-mysql-user-password \
+  -p 3306:3306 \
+  -d mysql:8
 
-docker run -e MYSQL_HOST=ip-address-of-mysql (inspected from docker inspect mysql-container) -e MYSQL_USER=your-mysql-user -e MYSQL_PASSWORD=your-mysql-user-password -p 8080:8080 xiaodanmao/nhk-easy-daily
+docker run -e MYSQL_HOST=ip-address-of-mysql (inspected from docker inspect mysql-container) \
+  -e MYSQL_USER=your-mysql-user \
+  -e MYSQL_PASSWORD=your-mysql-user-password \
+  -p 8080:8080 xiaodanmao/nhk-easy-daily
 ```
 
 ### Docker compose
