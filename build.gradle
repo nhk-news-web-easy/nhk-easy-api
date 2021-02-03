@@ -39,7 +39,7 @@ configurations {
 }
 
 dependencies {
-    compile 'io.sentry:sentry-logback:1.7.30'
+    compile 'io.sentry:sentry-logback:4.1.0'
     implementation 'mysql:mysql-connector-java:8.0.23'
     implementation 'org.jsoup:jsoup:1.13.1'
     implementation 'com.squareup.okhttp3:okhttp:4.9.1'
