@@ -1,7 +1,7 @@
 package nhk.service
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.databind.PropertyNamingStrategy
+import com.fasterxml.jackson.databind.PropertyNamingStrategies
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer
 import com.fasterxml.jackson.module.kotlin.readValue
@@ -115,7 +115,7 @@ open class NewsService {
             javaTimeModule.addDeserializer(LocalDateTime::class.java, localDateTimeDeserializer)
 
             val objectMapper = ObjectMapper()
-            objectMapper.propertyNamingStrategy = PropertyNamingStrategy.SNAKE_CASE
+            objectMapper.propertyNamingStrategy = PropertyNamingStrategies.SNAKE_CASE
             objectMapper.registerModule(javaTimeModule)
 
             return objectMapper.readValue(it)
