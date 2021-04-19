@@ -40,7 +40,7 @@ configurations {
 
 dependencies {
     compile 'io.sentry:sentry-logback:1.7.30'
-    implementation 'mysql:mysql-connector-java:8.0.23'
+    implementation 'mysql:mysql-connector-java:8.0.24'
     implementation 'org.jsoup:jsoup:1.13.1'
     implementation 'com.squareup.okhttp3:okhttp:4.9.1'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
