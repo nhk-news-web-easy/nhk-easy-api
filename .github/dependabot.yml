@@ -1,0 +1,31 @@
+version: 2
+updates:
+- package-ecosystem: gradle
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "21:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: org.jetbrains.kotlin.jvm
+    versions:
+    - 1.4.31
+    - 1.5.0
+  - dependency-name: org.springframework.boot:spring-boot-starter-test
+    versions:
+    - 2.4.4
+  - dependency-name: org.springframework.boot:spring-boot-starter-data-jpa
+    versions:
+    - 2.4.4
+  - dependency-name: org.springframework.boot:spring-boot-starter-web
+    versions:
+    - 2.4.4
+  - dependency-name: org.springframework.boot:spring-boot-gradle-plugin
+    versions:
+    - 2.4.4
+  - dependency-name: io.sentry:sentry-logback
+    versions:
+    - 4.0.0
+    - 4.1.0
+    - 4.2.0
+    - 4.3.0
