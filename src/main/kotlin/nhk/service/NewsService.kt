@@ -44,11 +44,11 @@ open class NewsService {
     @Transactional
     open fun fetchAndSaveTopNews() {
         val topNews = getTopNews()
-                .filter { news ->
-                    newsRepository.findByTitle(news.title).isEmpty()
-                }.map { news ->
-                    newsParser.parseNews(news)
-                }
+            .filter { news ->
+                newsRepository.findByTitle(news.title).isEmpty()
+            }.map { news ->
+                newsParser.parseNews(news)
+            }
 
         newsRepository.saveAll(topNews)
 
@@ -76,11 +76,11 @@ open class NewsService {
 
         newWords.forEach { word ->
             val definitions = word.definitions
-                    .map { definition ->
-                        definition.wordId = word.id
+                .map { definition ->
+                    definition.wordId = word.id
 
-                        definition
-                    }
+                    definition
+                }
 
             wordDefinitionRepository.saveAll(definitions)
         }
@@ -88,14 +88,14 @@ open class NewsService {
         val wordNameIdMap = words.associateBy({ it.name }, { it.id })
         val newsWords = topNews.flatMap { news ->
             news.words
-                    .map { word ->
-                        val newsWord = NewsWord()
-                        newsWord.newsId = news.id
-                        newsWord.wordId = wordNameIdMap.getOrDefault(word.name, 0)
-                        newsWord.idInNews = word.idInNews
+                .map { word ->
+                    val newsWord = NewsWord()
+                    newsWord.newsId = news.id
+                    newsWord.wordId = wordNameIdMap.getOrDefault(word.name, 0)
+                    newsWord.idInNews = word.idInNews
 
-                        newsWord
-                    }
+                    newsWord
+                }
         }
 
         newsWordRepository.saveAll(newsWords)
@@ -104,14 +104,15 @@ open class NewsService {
     fun getTopNews(): List<TopNewsDto> {
         val okHttpClient = OkHttpClient()
         val request = Request.Builder()
-                .url(Constants.TOP_NEWS_URL)
-                .build()
+            .url(Constants.TOP_NEWS_URL)
+            .build()
         val response = okHttpClient.newCall(request).execute()
         val json = response.body?.string()
 
         json?.let {
             val javaTimeModule = JavaTimeModule()
-            val localDateTimeDeserializer = LocalDateTimeDeserializer(DateTimeFormatter.ofPattern(Constants.NHK_NEWS_EASY_DATE_FORMAT))
+            val localDateTimeDeserializer =
+                LocalDateTimeDeserializer(DateTimeFormatter.ofPattern(Constants.NHK_NEWS_EASY_DATE_FORMAT))
             javaTimeModule.addDeserializer(LocalDateTime::class.java, localDateTimeDeserializer)
 
             val objectMapper = ObjectMapper()

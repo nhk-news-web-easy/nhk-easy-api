@@ -1,10 +1,17 @@
 buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+
     ext {
         springBootVersion = "2.3.5.RELEASE"
     }
 
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion")
+        classpath "org.jlleitschuh.gradle:ktlint-gradle:10.0.0"
     }
 }
 
@@ -12,6 +19,7 @@ plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.4.32'
 }
 
+apply plugin: "org.jlleitschuh.gradle.ktlint"
 apply plugin: 'org.springframework.boot'
 apply plugin: 'jacoco'
 
@@ -32,10 +40,7 @@ version '1.0-SNAPSHOT'
 
 repositories {
     jcenter()
-}
-
-configurations {
-    ktlint
+    mavenCentral()
 }
 
 dependencies {
@@ -50,14 +55,6 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
     implementation "org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion"
     testImplementation "org.springframework.boot:spring-boot-starter-test:$springBootVersion"
-    ktlint "com.github.shyiko:ktlint:0.31.0"
-}
-
-task ktlint(type: JavaExec, group: "verification") {
-    description = "Check Kotlin code style."
-    classpath = configurations.ktlint
-    main = "com.github.shyiko.ktlint.Main"
-    args "src/**/*.kt"
 }
 
 compileKotlin {

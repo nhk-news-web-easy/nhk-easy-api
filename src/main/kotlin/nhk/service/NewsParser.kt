@@ -47,8 +47,8 @@ class NewsParser {
         val url = "https://www3.nhk.or.jp/news/easy/$newsId/$newsId.out.dic"
         val okHttpClient = OkHttpClient()
         val request = Request.Builder()
-                .url(url)
-                .build()
+            .url(url)
+            .build()
         val response = okHttpClient.newCall(request).execute()
         val json = response.body?.string()
 
@@ -59,10 +59,10 @@ class NewsParser {
             val entries = reikai.get("entries")
 
             return entries.fields()
-                    .asSequence()
-                    .flatMap { entry ->
-                        parseWord(entry).asSequence()
-                    }.toMutableSet()
+                .asSequence()
+                .flatMap { entry ->
+                    parseWord(entry).asSequence()
+                }.toMutableSet()
         }
 
         return mutableSetOf()
@@ -70,27 +70,27 @@ class NewsParser {
 
     private fun parseWord(entry: Map.Entry<String, JsonNode>): List<Word> {
         return entry.value.toList()
-                .groupBy { node -> node.get("hyouki")[0].asText() }
-                .entries
-                .map { keyValue ->
-                    val word = Word()
-                    word.name = keyValue.key
-                    word.idInNews = entry.key
+            .groupBy { node -> node.get("hyouki")[0].asText() }
+            .entries
+            .map { keyValue ->
+                val word = Word()
+                word.name = keyValue.key
+                word.idInNews = entry.key
 
-                    val wordDefinitions = keyValue.value
-                            .map { node ->
-                                val wordDefinition = WordDefinition()
-                                wordDefinition.definitionWithRuby = node.get("def").asText()
-                                wordDefinition.definition = this.extractWordDefinition(wordDefinition.definitionWithRuby)
+                val wordDefinitions = keyValue.value
+                    .map { node ->
+                        val wordDefinition = WordDefinition()
+                        wordDefinition.definitionWithRuby = node.get("def").asText()
+                        wordDefinition.definition = this.extractWordDefinition(wordDefinition.definitionWithRuby)
 
-                                wordDefinition
-                            }
-                            .toMutableList()
+                        wordDefinition
+                    }
+                    .toMutableList()
 
-                    word.definitions = wordDefinitions
+                word.definitions = wordDefinitions
 
-                    word
-                }
+                word
+            }
     }
 
     private fun extractWordDefinition(definitionWithRuby: String): String {

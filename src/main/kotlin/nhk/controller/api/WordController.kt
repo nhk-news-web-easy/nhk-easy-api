@@ -43,23 +43,23 @@ class WordController : BaseController() {
         }
         val words = wordRepository.findByIdIn(wordIds)
         val wordDefinitions = wordDefinitionRepository.findByWordIdIn(wordIds)
-                .groupBy { wordDefinition ->
-                    wordDefinition.wordId
-                }
+            .groupBy { wordDefinition ->
+                wordDefinition.wordId
+            }
 
         return words.map { word ->
             val wordDto = WordDto()
             wordDto.idInNews = newsWordMap[word.id]?.idInNews ?: ""
             wordDto.name = word.name
             wordDto.definitions = wordDefinitions[word.id]
-                    ?.map { wordDefinition ->
-                        val wordDefinitionDto = WordDefinitionDto()
-                        wordDefinitionDto.definition = wordDefinition.definition
-                        wordDefinitionDto.definitionWithRuby = wordDefinition.definitionWithRuby
+                ?.map { wordDefinition ->
+                    val wordDefinitionDto = WordDefinitionDto()
+                    wordDefinitionDto.definition = wordDefinition.definition
+                    wordDefinitionDto.definitionWithRuby = wordDefinition.definitionWithRuby
 
-                        wordDefinitionDto
-                    }
-                    ?.toMutableList() ?: mutableListOf()
+                    wordDefinitionDto
+                }
+                ?.toMutableList() ?: mutableListOf()
 
             wordDto
         }
