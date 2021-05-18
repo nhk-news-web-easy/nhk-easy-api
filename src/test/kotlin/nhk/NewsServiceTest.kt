@@ -11,19 +11,19 @@ import org.springframework.beans.factory.annotation.Autowired
 
 class NewsServiceTest : BaseTest() {
     @Autowired
-    lateinit var newsService: NewsService
+    private lateinit var newsService: NewsService
 
     @Autowired
-    lateinit var newsRepository: NewsRepository
+    private lateinit var newsRepository: NewsRepository
 
     @Autowired
-    lateinit var wordRepository: WordRepository
+    private lateinit var wordRepository: WordRepository
 
     @Autowired
-    lateinit var wordDefinitionRepository: WordDefinitionRepository
+    private lateinit var wordDefinitionRepository: WordDefinitionRepository
 
     @Autowired
-    lateinit var newsParser: NewsParser
+    private lateinit var newsParser: NewsParser
 
     @Test
     fun shouldGetTopNews() {

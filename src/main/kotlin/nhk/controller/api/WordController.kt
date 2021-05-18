@@ -15,16 +15,16 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 class WordController : BaseController() {
     @Autowired
-    lateinit var newsRepository: NewsRepository
+    private lateinit var newsRepository: NewsRepository
 
     @Autowired
-    lateinit var newsWordRepository: NewsWordRepository
+    private lateinit var newsWordRepository: NewsWordRepository
 
     @Autowired
-    lateinit var wordRepository: WordRepository
+    private lateinit var wordRepository: WordRepository
 
     @Autowired
-    lateinit var wordDefinitionRepository: WordDefinitionRepository
+    private lateinit var wordDefinitionRepository: WordDefinitionRepository
 
     @GetMapping("words")
     fun getWords(@RequestParam newsId: String): List<WordDto> {

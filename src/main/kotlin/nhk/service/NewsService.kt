@@ -27,19 +27,19 @@ open class NewsService {
     private val logger: Logger = LoggerFactory.getLogger(NewsService::class.java)
 
     @Autowired
-    lateinit var newsParser: NewsParser
+    private lateinit var newsParser: NewsParser
 
     @Autowired
-    lateinit var newsRepository: NewsRepository
+    private lateinit var newsRepository: NewsRepository
 
     @Autowired
-    lateinit var wordRepository: WordRepository
+    private lateinit var wordRepository: WordRepository
 
     @Autowired
-    lateinit var wordDefinitionRepository: WordDefinitionRepository
+    private lateinit var wordDefinitionRepository: WordDefinitionRepository
 
     @Autowired
-    lateinit var newsWordRepository: NewsWordRepository
+    private lateinit var newsWordRepository: NewsWordRepository
 
     @Transactional
     open fun fetchAndSaveTopNews() {

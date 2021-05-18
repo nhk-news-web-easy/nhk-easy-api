@@ -13,7 +13,7 @@ import java.util.Date
 @RestController
 class NewsController : BaseController() {
     @Autowired
-    lateinit var newsRepository: NewsRepository
+    private lateinit var newsRepository: NewsRepository
 
     @GetMapping("/news")
     fun getNews(
