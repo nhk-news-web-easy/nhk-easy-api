@@ -47,7 +47,7 @@ dependencies {
     compile 'io.sentry:sentry-logback:1.7.30'
     implementation 'mysql:mysql-connector-java:8.0.25'
     implementation 'org.jsoup:jsoup:1.13.1'
-    implementation 'com.squareup.okhttp3:okhttp:4.9.1'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.3'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     implementation "org.jetbrains.kotlin:kotlin-reflect"
     implementation 'com.fasterxml.jackson.module:jackson-module-kotlin:2.12.5'
