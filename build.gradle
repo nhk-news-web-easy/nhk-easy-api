@@ -50,7 +50,7 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:4.9.1'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     implementation "org.jetbrains.kotlin:kotlin-reflect"
-    implementation 'com.fasterxml.jackson.module:jackson-module-kotlin:2.12.5'
+    implementation 'com.fasterxml.jackson.module:jackson-module-kotlin:2.13.1'
     implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.12.5'
     implementation "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
     implementation "org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion"
