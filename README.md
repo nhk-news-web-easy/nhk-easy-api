@@ -5,7 +5,7 @@ API of [nhk-easy-mobile](https://github.com/Frederick-S/nhk-easy-mobile).
 ## Getting started
 ### Docker
 ```sh
-docker run -e MYSQL_HOST=ip-address-of-mysql (inspected from docker inspect mysql-container) \
+docker run -e MYSQL_HOST=ip-address-of-mysql \
   -e MYSQL_USER=your-mysql-user \
   -e MYSQL_PASSWORD=your-mysql-user-password \
   -p 8080:8080 xiaodanmao/nhk-easy-api
