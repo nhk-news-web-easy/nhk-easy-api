@@ -17,8 +17,5 @@ docker run -e MYSQL_HOST=ip-address-of-mysql (inspected from docker inspect mysq
   -p 8080:8080 xiaodanmao/nhk-easy-api
 ```
 
-### Docker compose
-Run `cp .env.template .env` and modify user & password, then run `docker-compose up -d`.
-
 ## License
 [MIT](LICENSE)
