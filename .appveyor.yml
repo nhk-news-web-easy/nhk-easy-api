@@ -1,4 +1,4 @@
-image: Visual Studio 2019
+image: Visual Studio 2022
 environment:
   MYSQL_PWD: Password12!
 services:
@@ -6,6 +6,6 @@ services:
 before_build:
   - set PATH=%PATH%;C:\Program Files\MySql\MySQL Server 5.7\bin
   - mysql -e "create database nhk_test;" --user=root
-build_script:
+build: off
 test_script:
   - mvn test
