@@ -7,6 +7,5 @@ before_build:
   - set PATH=%PATH%;C:\Program Files\MySql\MySQL Server 5.7\bin
   - mysql -e "create database nhk_test;" --user=root
 build_script:
-  - gradlew.bat build
 test_script:
-  - gradlew.bat test jacocoTestReport
+  - mvn test
