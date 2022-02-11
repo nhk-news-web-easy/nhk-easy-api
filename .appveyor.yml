@@ -6,7 +6,8 @@ services:
 before_build:
   - set PATH=%PATH%;C:\Program Files\MySql\MySQL Server 5.7\bin
   - mysql -e "create database nhk_test;" --user=root
-build: off
+build_script:
+  - mvn compile
 before_test:
   - SET JAVA_HOME=C:\Program Files\Java\jdk11
   - SET PATH=%JAVA_HOME%\bin;%PATH%
