@@ -35,9 +35,9 @@ class WordController : BaseController() {
         }
 
         val newsWords = newsWordRepository.findByNewsId(news.first().id)
-        val newsWordMap = newsWords.map { newsWord ->
-            newsWord.wordId to newsWord
-        }.toMap()
+        val newsWordMap = newsWords.associateBy { newsWord ->
+            newsWord.wordId
+        }
         val wordIds = newsWords.map { newsWord ->
             newsWord.wordId
         }
