@@ -28,8 +28,8 @@
 		</dependency>
 		<dependency>
 			<groupId>io.sentry</groupId>
-			<artifactId>sentry-logback</artifactId>
-			<version>5.5.2</version>
+			<artifactId>sentry-spring-boot-starter</artifactId>
+			<version>5.6.1</version>
 		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>
