@@ -1,4 +1,4 @@
-# nhk-easy-api 
+# nhk-easy-api [![Java CI with Maven](https://github.com/nhk-news-web-easy/nhk-easy-api/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/nhk-news-web-easy/nhk-easy-api/actions/workflows/build.yml)
 
 API of [nhk-easy-mobile](https://github.com/nhk-news-web-easy/nhk-easy-mobile), this repo depends on [nhk-easy-task](https://github.com/nhk-news-web-easy/nhk-easy-task) to fetch and parse news from [NEWS WEB EASY](https://www3.nhk.or.jp/news/easy/).
 
