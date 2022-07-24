@@ -1,6 +1,6 @@
 package nhk.repository
 
-import nhk.entity.News
+import io.github.io.github.nhk_news_web_easy.News
 import org.springframework.data.jpa.repository.JpaRepository
 import java.time.Instant
 

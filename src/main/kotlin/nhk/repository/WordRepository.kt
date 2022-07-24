@@ -1,6 +1,6 @@
 package nhk.repository
 
-import nhk.entity.Word
+import io.github.io.github.nhk_news_web_easy.Word
 import org.springframework.data.jpa.repository.JpaRepository
 
 interface WordRepository : JpaRepository<Word, Int> {

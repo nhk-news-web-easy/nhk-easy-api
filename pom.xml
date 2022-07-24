@@ -19,6 +19,11 @@
 	</properties>
 	<dependencies>
 		<dependency>
+			<groupId>io.github.nhk-news-web-easy</groupId>
+			<artifactId>nhk-easy-entity</artifactId>
+			<version>1.0.2</version>
+		</dependency>
+		<dependency>
 			<groupId>org.jetbrains.kotlin</groupId>
 			<artifactId>kotlin-reflect</artifactId>
 		</dependency>
