@@ -13,6 +13,8 @@ class NewsDto {
 
     var body = ""
 
+    var bodyWithoutRuby = ""
+
     var url = ""
 
     var m3u8Url = ""
