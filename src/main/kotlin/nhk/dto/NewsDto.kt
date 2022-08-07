@@ -13,7 +13,7 @@ class NewsDto {
 
     var body = ""
 
-    var bodyWithoutRuby = ""
+    var bodyWithoutRuby: String? = ""
 
     var url = ""
 
