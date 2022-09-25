@@ -9,6 +9,8 @@ class NewsDto {
 
     var titleWithRuby = ""
 
+    var outline: String? = ""
+
     var outlineWithRuby = ""
 
     var body = ""

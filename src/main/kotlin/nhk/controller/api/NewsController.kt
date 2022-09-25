@@ -38,6 +38,7 @@ class NewsController : BaseController() {
                 dto.newsId = news.newsId
                 dto.title = news.title
                 dto.titleWithRuby = news.titleWithRuby
+                dto.outline = news.outline
                 dto.outlineWithRuby = news.outlineWithRuby
                 dto.body = news.body
                 dto.bodyWithoutRuby = news.bodyWithoutRuby
