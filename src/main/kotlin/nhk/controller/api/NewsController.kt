@@ -41,7 +41,7 @@ class NewsController : BaseController() {
                 dto.outline = news.outline
                 dto.outlineWithRuby = news.outlineWithRuby
                 dto.body = news.body
-                dto.bodyWithoutRuby = news.bodyWithoutRuby
+                dto.bodyWithoutHtml = news.bodyWithoutHtml
                 dto.url = news.url
                 dto.m3u8Url = news.m3u8Url
                 dto.imageUrl = news.imageUrl
