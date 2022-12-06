@@ -1,4 +1,4 @@
-FROM maven:3.8.3-adoptopenjdk-11-openj9
+FROM maven:3.8.3-jdk-11-openj9
 
 WORKDIR /app
 ADD . /app
