@@ -27,6 +27,5 @@ jobs:
         with:
           platforms: |-
             linux/amd64
-            linux/arm64
           push: true
           tags: xiaodanmao/nhk-easy-api:${{ github.event.release.tag_name }}
