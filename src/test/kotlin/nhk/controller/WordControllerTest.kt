@@ -34,7 +34,7 @@ class WordControllerTest : BaseTest() {
     lateinit var wordDefinitionRepository: WordDefinitionRepository
 
     @Test
-    fun shouldReturnBadRequest() {
+    fun shouldReturnBadRequestWhenGetWords() {
         mockMvc.perform(MockMvcRequestBuilders.get("/words"))
                 .andExpect(MockMvcResultMatchers.status().isBadRequest)
     }
