@@ -49,7 +49,7 @@ class WordControllerTest : BaseTest() {
     fun shouldGetWords() {
         val news = News()
         news.body = "body"
-        news.newsId = "1"
+        news.newsId = "2"
         news.url = "url"
         news.m3u8Url = "url"
         news.imageUrl = "image"
@@ -81,7 +81,7 @@ class WordControllerTest : BaseTest() {
 
         newsWordRepository.save(newsWord)
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/words?newsId=1"))
+        mockMvc.perform(MockMvcRequestBuilders.get("/words?newsId=2"))
                 .andExpect(MockMvcResultMatchers.status().isOk)
                 .andExpect(MockMvcResultMatchers.content().string(Matchers.containsString("word")))
     }
