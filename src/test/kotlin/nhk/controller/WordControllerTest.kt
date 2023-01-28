@@ -1,15 +1,19 @@
 package nhk.controller
 
+import com.fasterxml.jackson.core.type.TypeReference
+import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import io.github.io.github.nhk_news_web_easy.News
 import io.github.io.github.nhk_news_web_easy.NewsWord
 import io.github.io.github.nhk_news_web_easy.Word
 import io.github.io.github.nhk_news_web_easy.WordDefinition
 import nhk.BaseTest
+import nhk.dto.WordDto
 import nhk.repository.NewsRepository
 import nhk.repository.NewsWordRepository
 import nhk.repository.WordDefinitionRepository
 import nhk.repository.WordRepository
-import org.hamcrest.Matchers
+import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
@@ -77,8 +81,16 @@ class WordControllerTest : BaseTest() {
 
         newsWordRepository.save(newsWord)
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/words?newsId=2"))
+        val objectMapper = ObjectMapper()
+        objectMapper.registerModule(JavaTimeModule())
+
+        val body = mockMvc.perform(MockMvcRequestBuilders.get("/words?newsId=2"))
                 .andExpect(MockMvcResultMatchers.status().isOk)
-                .andExpect(MockMvcResultMatchers.content().string(Matchers.containsString("word")))
+                .andReturn()
+                .response
+                .contentAsString
+        val wordDtos = objectMapper.readValue(body, object : TypeReference<List<WordDto>>() {})
+
+        Assertions.assertTrue(wordDtos.isNotEmpty())
     }
 }

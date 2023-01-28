@@ -1,9 +1,13 @@
 package nhk.controller
 
+import com.fasterxml.jackson.core.type.TypeReference
+import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import io.github.io.github.nhk_news_web_easy.News
 import nhk.BaseTest
+import nhk.dto.NewsDto
 import nhk.repository.NewsRepository
-import org.hamcrest.Matchers
+import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
@@ -41,8 +45,16 @@ class NewsControllerTest : BaseTest() {
 
         newsRepository.save(news)
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/news?startDate=2023-01-25T00:00:00.000Z&endDate=2023-01-25T23:59:59.000Z"))
+        val objectMapper = ObjectMapper()
+        objectMapper.registerModule(JavaTimeModule())
+
+        val body = mockMvc.perform(MockMvcRequestBuilders.get("/news?startDate=2023-01-25T00:00:00.000Z&endDate=2023-01-25T23:59:59.000Z"))
                 .andExpect(MockMvcResultMatchers.status().isOk)
-                .andExpect(MockMvcResultMatchers.content().string(Matchers.containsString("body")))
+                .andReturn()
+                .response
+                .contentAsString
+        val newsDtos = objectMapper.readValue(body, object : TypeReference<List<NewsDto>>() {})
+
+        Assertions.assertTrue(newsDtos.isNotEmpty())
     }
 }
