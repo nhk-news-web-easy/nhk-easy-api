@@ -21,7 +21,7 @@
 		<dependency>
 			<groupId>io.github.nhk-news-web-easy</groupId>
 			<artifactId>nhk-easy-entity</artifactId>
-			<version>1.0.6</version>
+			<version>1.0.7</version>
 		</dependency>
 		<dependency>
 			<groupId>org.jetbrains.kotlin</groupId>
