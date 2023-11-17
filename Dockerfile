@@ -1,4 +1,4 @@
-FROM maven:3.8.6-eclipse-temurin-11
+FROM maven:3.8.1-jdk-11-openj9
 
 WORKDIR /app
 ADD . /app
