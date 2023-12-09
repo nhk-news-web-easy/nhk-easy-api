@@ -11,5 +11,12 @@ docker run -e MYSQL_HOST=ip-address-of-mysql \
   -d xiaodanmao/nhk-easy-api
 ```
 
+## API
+### Get news
+```
+curl --request GET \
+  --url 'http://localhost:8080/news?startDate=2023-12-08T00%3A00%3A00.000Z&endDate=2023-12-11T00%3A00%3A00.000Z'
+```
+
 ## License
 [MIT](LICENSE)
